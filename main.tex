@@ -35,7 +35,7 @@
 \bibliographystyle{aipauth4-1}
 %\bibliographystyle{apalike}
 %\bibliography{bib/books,bib/articles}
-\bibliography{bib/urls}
+\bibliography{bib/urls,bib/articles}
 
 % Define the accents
 \usepackage{selinput}
@@ -75,12 +75,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title page information:
-\title{Best software engineering practices, why should academia care?}
+\title{Best practices for Scientific computing}
  %\subtitle{\color{my_gray}   }
  \institute{
-A Lavterskel talk \\
-\\
- Meteorology and Oceanography
+A case study for NGI
   % \color{my_lightgray}
   % \vspace{-0.2cm} \tiny  Institut des Nanosciences de Paris (INSP)
   % \hspace{1.0cm} Surface du Verre et Interfaces (SVI)}
@@ -89,17 +87,17 @@ A Lavterskel talk \\
  \author{Sunniva Indrehus }
 
 
- \date{\scriptsize April 21, 2021}
+ \date{\scriptsize May 21, 2021}
 
  % Include all logos
  \vspace{-2.cm}
- \titlegraphic{
-%\centering
-  % \vspace{-0.3cm}
-   {\hspace*{3cm}
-   \includegraphics[width=0.7\linewidth,keepaspectratio]{logos/UiO_Hovedlogo/English/UiO_Seal_A_ENG}
-   }
- }
+%  \titlegraphic{
+% %\centering
+%   % \vspace{-0.3cm}
+%    {\hspace*{3cm}
+%    \includegraphics[width=0.7\linewidth,keepaspectratio]{logos/UiO_Hovedlogo/English/UiO_Seal_A_ENG}
+%    }
+%  }
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \frame{
    \titlepage
@@ -119,14 +117,12 @@ A Lavterskel talk \\
       %
       \column{.99\textwidth}
       \begin{itemize}
-        \item This talked has borrowed some points from 'Community Scientific
-          Software Development' by Ryan Knox, Discussion Talk on NSF 21-549
         \item The software engineers team of the Community Terrestrial Systems Model
           (CTSM)-group at the National Center for Atmospheric Research (NCAR)
-          for discussions and ideas
-          \item The Research Software Engineers at Aalto University,
-            \url{https://scicomp.aalto.fi/rse/}
-          \item Consultants and engineers in Cognite, \url{https://www.cognite.com}
+          for discussions and ideas, \url{https://github.com/ESCOMP/CTSM/wiki/Meeting-Notes-2021-Software#may-13th-2021}
+        \item The Nordic-RSE (Research Software Engineer) community at Aalto University,
+            \url{https://nordic-rse.org/}
+        \item Consultants and engineers in Cognite and BearingPoint 
         \end{itemize}
 
     \end{columns}
@@ -140,80 +136,31 @@ A Lavterskel talk \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Outline}
   \tableofcontents[hideallsubsections]
-   %\tableofcontents[hideothersubsections]
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-
-% ---------------------------------------------------------------
-\section{Academia today}
-\subsection{A growing sector}
-% ---------------------------------------------------------------
+% -------------------------------------------------------------
+\section{Good scientific software}
+\subsection{Question}
+% -------------------------------------------------------------
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\setframetitle{}}
-\only<1>
-{
-\vspace{-0.5cm}
-%\centering The computational Earth system sciences are to a high extent dependent on
-  %    community software %
-    \begin{columns}
-      %
-      \column{.99\textwidth}
-        \begin{figure}
-         %\subcaptionbox{Built on existing work}
-         {\myimageShift{width=\linewidth}{illustrations/code_quality/researchers_big_countries}{Eurostats,
-             https://ec.europa.eu/eurostat/statistics-explained/index.php/R\_\%26\_D\_personnel}}
-       %% \end{figure}
-       %%     \column{.5\textwidth}
-       %%  \begin{figure}
-         %\subcaptionbox{Built on existing work}
-         \vspace{-0.5cm}
-         {\myimage{width=\linewidth}{illustrations/code_quality/researchers_explanation}{warfighter268}}
-       \end{figure}
-
-       %
-   \end{columns}
-}
+  \only<1>
+  {
+    \centering \Large What is good scientific software?
+    \newline 
+    \footnote{\fullcite{wilson2014best}}, \footnote{\fullcite{academiaCode}}, \footnote{\fullcite{industryLesson2}}, \footnote{\fullcite{industryLesson3}}, \footnote{\fullcite{academiaCodeQuality}}
+  }
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-% ---------------------------------------------------------------
-\subsection{Standing on the shoulders of giants}
-% ---------------------------------------------------------------
+\subsection{My answer}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
-\only<1>
-{
-%\centering The computational Earth system sciences are to a high extent dependent on
-  %    community software %
-   % \begin{columns}
-      %
-     % \column{.5\textwidth}
-        \begin{figure}
-         %\subcaptionbox{Built on existing work}
-         {\myimage{width=0.6\linewidth}{illustrations/code_quality/iron_circle}{warfighter268}}
-       \end{figure}
-       %
-    % \end{columns}
-}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-% -------------------------------------------------------------
-%\section{}
-\subsection{What is 'good' scientific software?}
-%\subsection{Common software life cycle guide}
-% -------------------------------------------------------------
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -224,7 +171,6 @@ A Lavterskel talk \\
       \column{.5\textwidth}
       \begin{itemize}
       \item Something that works
-
       \item Standardized
       \item Understandable
       \item Reproducible \footnote{\fullcite{reproducibility}}
@@ -249,26 +195,202 @@ Maintainable \footnote{Common estimate: spending 20\% of the developing time
 
 
 
-
+\section{Part 1: Best practices for scientific computing}
+\subsection{My point of view}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\setframetitle{}}
-\only<1>
-{
-\centering \large The industry know academicians as bad
-coders \footnote{\fullcite{academiaCode}}, \footnote{\fullcite{industryLesson2}}, \footnote{\fullcite{industryLesson3}}, \footnote{\fullcite{academiaCodeQuality}}
-}
-\only<2>
-{
-\centering \large In the industry academians are known for bad coders
-\\
-\Huge \color{my_raspberry} WHY?
-}
+  Learning from success stories  \footnote{\fullcite{wilson2014best}}, \footnote{\fullcite{bigTech}}:
+  
+  \begin{columns}[t]
+    \column{.5\textwidth}
+    
+    \begin{itemize}
+      \item Version control 
+      
+      \item Workflow optimization
+      
+      \item Containerization
+      
+      \item Documentation
+      
+      \item (Modern) editor
+    \end{itemize}
+    
+    \column{.5\textwidth}
+    % \begin{figure}
+    %   \subcaptionbox{The fight of the editors}
+    %   {\myimageShift{width=\linewidth}{illustrations/code_quality/editor_fight}{https://i.redd.it/798myjzkwmjz.jpg}}
+    % \end{figure}
+  \end{columns}
+  
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{The Industry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\setframetitle{}}
+  
+  \begin{columns}[t]
+    \column{.5\textwidth}
+    
+    \begin{itemize}
+      \item Version control 
+      \textcolor{bg!85!normal text.fg}
+      {\item Workflow optimization     
+      \item Containerization  
+      \item Documentation
+      \item (Modern) editor}
+      
+    \end{itemize}
+    
+    \column{.5\textwidth}
+    \begin{figure}
+      \captionsetup[subfigure]{justification=centering}
+      \centering
+      \subcaptionbox{}
+      {\includegraphics[width=\linewidth]{illustrations/code_quality/git}}
+    \end{figure}
+  \end{columns}
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\setframetitle{}}
+  
+  \begin{columns}[t]
+    \column{.5\textwidth}
+    
+    \begin{itemize}
+      \item \textcolor{bg!85!normal text.fg}{Version control}
+      \item Workflow optimization     
+      \textcolor{bg!85!normal text.fg}
+      {\item Containerization  
+      \item Documentation
+      \item (Modern) editor} 
+    \end{itemize}
+    
+    \column{.6\textwidth}
+    \begin{figure}
+      \centering
+      \subcaptionbox{What happens when using spaghetti code}
+      {\myimageShift{width=0.89\linewidth}{illustrations/code_quality/goto}{https://www.i-programmer.info/programming/theory/1332-goto-spaghetti-and-velociraptor.html}}
+    \end{figure}
+  \end{columns}
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\setframetitle{}}
+  
+  \begin{columns}[t]
+    \column{.5\textwidth}
+    
+    \begin{itemize}
+      \item \textcolor{bg!85!normal text.fg}{Version control
+      \item Workflow optimization}    
+      \item Containerization  
+      \textcolor{bg!85!normal text.fg}
+      {\item Documentation
+      \item (Modern) editor} 
+    \end{itemize}
+    
+    \column{.5\textwidth}
+    \begin{figure}
+      {\myimageShift{width=0.8\linewidth}{illustrations/code_quality/cloud_computing}{https://www.pinterest.co.uk/pin/536209899356890025/}}
+    \end{figure}
+  \end{columns}
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\setframetitle{}}
+  
+  \begin{columns}[t]
+    \column{.5\textwidth}
+    
+    \begin{itemize}
+      \item \textcolor{bg!85!normal text.fg}{Version control
+      \item Workflow optimization    
+      \item Containerization }
+      \item Documentation
+      \textcolor{bg!85!normal text.fg}
+      {\item (Modern) editor} 
+    \end{itemize}
+    
+    \column{.5\textwidth}
+    \begin{figure}
+      \subcaptionbox{Listen to  Morpheus}
+      {\myimageShift{width=0.8\linewidth}{illustrations/code_quality/comment-your-code}{https://www.i-programmer.info/programming/theory/1332-goto-spaghetti-and-velociraptor.html}}
+    \end{figure}
+  \end{columns}
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{\setframetitle{}}
+  
+  \begin{columns}[t]
+    \column{.5\textwidth}
+    
+    \begin{itemize}
+      \item \textcolor{bg!85!normal text.fg}{Version control
+      \item Workflow optimization    
+      \item Containerization 
+      \item Documentation}
+      \item (Modern) editor
+    \end{itemize}
+    
+    \column{.5\textwidth}
+    \begin{figure}
+      \subcaptionbox{The fight of the editors}
+      {\myimageShift{width=\linewidth}{illustrations/code_quality/editor_fight}{https://i.redd.it/798myjzkwmjz.jpg}}
+    \end{figure}
+  \end{columns}
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% ---------------------------------------------------------------
+\section{Part 2: Involvement in a typical project}
+\subsection{Abstraction level}
+% ---------------------------------------------------------------
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\setframetitle{}}
+ \only<1>
+  {
+ \begin{figure}
+         \subcaptionbox{Typical computational projects}
+         {\myimage{width=\linewidth}{illustrations/code_quality/project_definitions}{https://doi.org/10.1371/journal.pcbi.1008549.g001}}
+ \end{figure}
+ }
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsection{Developing 'good' code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -286,173 +408,27 @@ coders \footnote{\fullcite{academiaCode}}, \footnote{\fullcite{industryLesson2}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\subsection{Good enough practices in scientific computing}
 
-\subsection{Learning from success}
+
+
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\setframetitle{}}
-
-\begin{itemize}
-
-\item How has FAAMG  succeeded \footnote{\fullcite{bigTech}}?
-\begin{itemize}
-\item 'There is no such thing as a free (tech) lunch'
-\end{itemize}
-\item Common strategies
-\begin{itemize}
-\item Requirements to become a 'Data Scientist' \footnote{\fullcite{finnSearch}}
-\end{itemize}
-
-\end{itemize}
+  
+  \begin{figure}
+    \subcaptionbox{Extreams of community mindsets \footnote{\fullcite{wilson2017good}} }
+    {\myimage{width=0.79\linewidth}{illustrations/code_quality/mindset2}{Ryan
+    Knox}}
+  \end{figure}
+  
 \end{frame}
-
-
-
-
-%\subsection{Some techniques for properly implemented}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
-
- \begin{columns}[t]
-    \column{.5\textwidth}
-
-    \begin{itemize}
-    \item Version control
-    \end{itemize}
-
-    \column{.5\textwidth}
-    \begin{figure}
-     \subcaptionbox{How git is used}
-      {\myimage{width=0.79\linewidth}{illustrations/code_quality/git_xkcd}{https://xkcd.com/1597/}}
-%%
-     \end{figure}
-  \end{columns}
-
-\end{frame}
-
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{\setframetitle{}}
-
-  \begin{columns}[t]
-    \column{.5\textwidth}
-
-    \begin{itemize}
-    \item Version control
-
-      \item Workflow optimization
-    \end{itemize}
-
-    \column{.5\textwidth}
-    \begin{figure}
-          \subcaptionbox{What happens with spaghetti code}
-       {\myimageShift{width=0.89\linewidth}{illustrations/code_quality/goto}{https://www.i-programmer.info/programming/theory/1332-goto-spaghetti-and-velociraptor.html}}
-    \end{figure}
-  \end{columns}
-
-\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{\setframetitle{}}
-
-  \begin{columns}[t]
-    \column{.5\textwidth}
-
-    \begin{itemize}
-    \item Version control
-
-      \item Workflow optimization
-
-        \item Containerization
-    \end{itemize}
-
-    \column{.5\textwidth}
-    \begin{figure}
-                \subcaptionbox{Impress Yoda}
-   {\myimageShift{width=0.8\linewidth}{illustrations/code_quality/dockerizing}{https://www.i-programmer.info/programming/theory/1332-goto-spaghetti-and-velociraptor.html}}
-    \end{figure}
-  \end{columns}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{\setframetitle{}}
-
-  \begin{columns}[t]
-    \column{.5\textwidth}
-
-    \begin{itemize}
-    \item Version control
-
-      \item Workflow optimization
-
-        \item Containerization
-
-          \item Documentation
-    \end{itemize}
-
-    \column{.5\textwidth}
-    \begin{figure}
-          \subcaptionbox{Listen to  Morpheus}
-   {\myimageShift{width=0.8\linewidth}{illustrations/code_quality/comment-your-code}{https://www.i-programmer.info/programming/theory/1332-goto-spaghetti-and-velociraptor.html}}
-    \end{figure}
-  \end{columns}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{\setframetitle{}}
-
-  \begin{columns}[t]
-    \column{.5\textwidth}
-
-    \begin{itemize}
-    \item Version control
-
-      \item Workflow optimization
-
-        \item Containerization
-
-          \item Documentation
-
-            \item (Modern) editor
-    \end{itemize}
-
-    \column{.5\textwidth}
-    \begin{figure}
-      \subcaptionbox{The fight of the editors}
-   {\myimageShift{width=\linewidth}{illustrations/code_quality/editor_fight}{https://i.redd.it/798myjzkwmjz.jpg}}
-    \end{figure}
-  \end{columns}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -461,50 +437,33 @@ coders \footnote{\fullcite{academiaCode}}, \footnote{\fullcite{industryLesson2}}
  \only<1>
   {
  \begin{figure}
-         \subcaptionbox{When communication goes wrong}
+         \subcaptionbox{Stages of software development}
          {\myimage{width=\linewidth}{illustrations/code_quality/over_engineering}{https://www.action-engineering.com/blog/agile-acceptance-criteria/}}
  \end{figure}
  }
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-
-
-
-
-
-% ---------------------------------------------------------------
-\section{How do we get 'good' scientific software?}
-\subsection{Community mindset}
-% ---------------------------------------------------------------
-
+\subsection{Quantitative ground model}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\setframetitle{}}
-
- \begin{figure}
-         %\subcaptionbox{Built on existing work}
-         {\myimage{width=0.89\linewidth}{illustrations/code_quality/mindset}{Ryan
-      Knox}}
- \end{figure}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
-
- \begin{figure}
-         %\subcaptionbox{Built on existing work}
-         {\myimage{width=0.89\linewidth}{illustrations/code_quality/mindset2}{Ryan
-      Knox}}
- \end{figure}
-
+  \begin{columns}[t]
+    \column{.99\textwidth}
+    With my team I would like to: 
+    \begin{itemize}
+      \item Have an ideal start-up in beginning of the project 
+      
+      \item Decide on a platform for communication 
+      
+      \item Utilize pair programming and sprints for parallel developments
+      
+      \item Identify short- and long-term goals and priorizations
+      
+    \end{itemize}
+  
+  \end{columns}
+  
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -512,49 +471,6 @@ coders \footnote{\fullcite{academiaCode}}, \footnote{\fullcite{industryLesson2}}
 
 
 
-
-\subsection{Learning from the  NCAR community }
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
-
- \begin{figure}
-         %\subcaptionbox{Built on existing work}
-         {\myimage{width=0.79\linewidth}{illustrations/code_quality/se-goal}{Ryan
-         Knox}}
- \end{figure}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
-
- \begin{figure}
-         %\subcaptionbox{Built on existing work}
-         {\myimage{width=0.79\linewidth}{illustrations/code_quality/se-participation}{Ryan
-         Knox}}
- \end{figure}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
-
- \begin{figure}
-         %\subcaptionbox{Built on existing work}
-         {\myimage{width=0.79\linewidth}{illustrations/code_quality/se-organization}{Ryan
-         Knox}}
- \end{figure}
-
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Conclusion}
@@ -569,8 +485,7 @@ coders \footnote{\fullcite{academiaCode}}, \footnote{\fullcite{industryLesson2}}
 \centering
 
 
-\Large  Best software engineering practices, why should
-academia care?
+\Large  Why should we care about 'good enough' software engineering practices?
 
 }
 \end{frame}
@@ -578,20 +493,39 @@ academia care?
 
 \subsection{Answer}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\setframetitle{}}
   \only<1>
   {
 \centering
-\Large  Less time spent before reaching the fun stuff (do science), and the ability to do
-it better
+\Large  The quality of the software results will at best be as good as the software itself
 }
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\appendix
 
+\begin{frame}[label=questions]{Questions}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Where would you start if you were to apply machine learning to this development?}
+\begin{appendixframe}{How to apply macine learning to the development?}
+  \begin{columns}[t]
+    \column{.99\textwidth}
+    
+    \begin{itemize}
+      \item Learn from colleagues, \textit{i.e} Jose Cepeda, 'Machine learning in the assessment of landslide hazards' 
+      \item Fetch and clean data 
+      \item Split in training/testing data sets 
+      \item Pre-processing and transformations      
+      \item Processing 
+      \item Analysis 
+    \end{itemize}
+    
+  \end{columns}
+\end{appendixframe}
 
 
 \end{document}
