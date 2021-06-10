@@ -67,6 +67,7 @@ clean_text:
 	rm -f *.snm
 	rm -f *.b*
 	rm -f *.run.*
+	rm -f *.refresh
 
 clean_figures: $(FIGURES)
 	rm -f $(FIGURES)*.pdfsync
