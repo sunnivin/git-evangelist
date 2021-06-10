@@ -78,7 +78,7 @@
 \title{Best Practices for Scientific Computing}
  %\subtitle{\color{my_gray}   }
  \institute{
-A case study for NGI
+A lavterskel talk 
   % \color{my_lightgray}
   % \vspace{-0.2cm} \tiny  Institut des Nanosciences de Paris (INSP)
   % \hspace{1.0cm} Surface du Verre et Interfaces (SVI)}
@@ -91,13 +91,12 @@ A case study for NGI
 
  % Include all logos
  \vspace{-2.cm}
-%  \titlegraphic{
-% %\centering
-%   % \vspace{-0.3cm}
-%    {\hspace*{3cm}
-%    \includegraphics[width=0.7\linewidth,keepaspectratio]{logos/UiO_Hovedlogo/English/UiO_Seal_A_ENG}
-%    }
-%  }
+ \titlegraphic{
+%\centering
+   {\hspace*{3cm}
+   \includegraphics[width=0.7\linewidth,keepaspectratio]{logos/UiO_Hovedlogo/English/UiO_Seal_A_ENG}
+   }
+ }
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \frame{
    \titlepage
@@ -117,11 +116,10 @@ A case study for NGI
       %
       \column{.99\textwidth}
       \begin{itemize}
-        \item The software engineers team of the Community Terrestrial Systems Model
+        \item The software engineer team of the Community Terrestrial Systems Model
           (CTSM)-group at the National Center for Atmospheric Research (NCAR)
-          for discussions and ideas, \url{https://github.com/ESCOMP/CTSM/wiki/Meeting-Notes-2021-Software#may-13th-2021}
-        \item The Nordic-RSE (Research Software Engineer) community,
-            \url{https://nordic-rse.org/}
+          for discussions and \href{https://github.com/ESCOMP/CTSM/wiki/Meeting-Notes-2021-Software#may-13th-2021}{\color{blue}{ideas}}
+        \item The \href{https://nordic-rse.org/}{\color{blue}{Nordic-RSE}} (Research Software Engineer) community
         \item Consultants and engineers in Cognite and BearingPoint 
         \end{itemize}
 
@@ -195,7 +193,7 @@ Maintainable \footnote{Common estimate: spending 20\% of the developing time
 
 
 
-\section{Part 1: Best practices for scientific computing}
+\section{Best practices for scientific computing}
 \subsection{My point of view}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -372,7 +370,7 @@ Maintainable \footnote{Common estimate: spending 20\% of the developing time
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Abstraction level of a project}
+\subsection{A typical project}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\setframetitle{}}
@@ -387,7 +385,7 @@ Maintainable \footnote{Common estimate: spending 20\% of the developing time
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % ---------------------------------------------------------------
-\section{Part 2: Involvement in a typical project}
+\section{How to get "good" scientific software?}
 % ---------------------------------------------------------------
 
 
@@ -437,7 +435,7 @@ Maintainable \footnote{Common estimate: spending 20\% of the developing time
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Quantitative ground model with me}
+\subsection{Some practiacal tips to achive goals in a team}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\setframetitle{}}
@@ -446,9 +444,9 @@ Maintainable \footnote{Common estimate: spending 20\% of the developing time
     
     \begin{itemize}
       \item Common onboarding of team in the beginning of the project 
-      \begin{itemize}
-        \item Identification of goals and priorizations 
-      \end{itemize}
+      
+      \item Identification of community goals and priorizations 
+      
       
       \item Decide on a platform for collaboration
       
@@ -497,31 +495,6 @@ Maintainable \footnote{Common estimate: spending 20\% of the developing time
 }
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\appendix
-
-\begin{frame}[label=questions]{Questions}
-  \tableofcontents[hideallsubsections]
-\end{frame}
-
-\section{Where would you start if you were to apply machine learning to this development?}
-\begin{appendixframe}{How to apply macine learning to the development?}
-  \begin{columns}[t]
-    \column{.99\textwidth}
-    
-    \begin{itemize}
-      \item Learn from colleagues, \textit{e.g.} Jose Cepeda, 'Machine learning in the assessment of landslide hazards' 
-      \item Fetch and clean data 
-      \item Split in training/testing data sets 
-      \item Pre-processing and transformations      
-      \item Processing 
-      \item Analysis 
-    \end{itemize}
-    
-  \end{columns}
-\end{appendixframe}
-
 
 \end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
