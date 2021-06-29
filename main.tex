@@ -53,18 +53,18 @@
 
 
 
-\AtBeginSection[]
-{
-  {
-      \ifnum \value{framenumber}>1
-    \begin{frame}[noframenumbering]{Outline}
-   \setbeamertemplate{footline}{}
-   \tableofcontents[currentsection,hideallsubsections]
- \end{frame}
-   \else
-    \fi
-  }
-}
+% \AtBeginSection[]
+% {
+%   {
+%       \ifnum \value{framenumber}>1
+%     \begin{frame}[noframenumbering]{Outline}
+%    \setbeamertemplate{footline}{}
+%    \tableofcontents[currentsection,hideallsubsections]
+%  \end{frame}
+%    \else
+%     \fi
+%   }
+% }
 
 
 
@@ -75,10 +75,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title page information:
-\title{Best Practices for Scientific Computing}
+\title{How to be a 'good' git evangelist? }
  %\subtitle{\color{my_gray}   }
  \institute{
-A lavterskel talk 
+Nordic-RSE Unconference 
   % \color{my_lightgray}
   % \vspace{-0.2cm} \tiny  Institut des Nanosciences de Paris (INSP)
   % \hspace{1.0cm} Surface du Verre et Interfaces (SVI)}
@@ -87,7 +87,7 @@ A lavterskel talk
  \author{Sunniva Indrehus }
 
 
- \date{\scriptsize May 21, 2021}
+ \date{\scriptsize June 29, 2021}
 
  % Include all logos
  \vspace{-2.cm}
@@ -105,29 +105,6 @@ A lavterskel talk
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{}
-\subsection{Credit}
-
-
-\begin{frame}{\setframetitle{}}
-  \only<1>
-  {
-    \begin{columns}
-      %
-      \column{.99\textwidth}
-      \begin{itemize}
-        \item The software engineer team of the Community Terrestrial Systems Model
-          (CTSM)-group at the National Center for Atmospheric Research (NCAR)
-          for discussions and \href{https://github.com/ESCOMP/CTSM/wiki/Meeting-Notes-2021-Software#may-13th-2021}{\color{blue}{ideas}}
-        \item The \href{https://nordic-rse.org/}{\color{blue}{Nordic-RSE}} (Research Software Engineer) community
-        \item Consultants and engineers in Cognite and BearingPoint 
-        \end{itemize}
-
-    \end{columns}
-  }
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 
@@ -139,10 +116,61 @@ A lavterskel talk
 
 
 % -------------------------------------------------------------
-\section{Good scientific software}
-\subsection{Question}
+\section{Why I want to answer this question}
+\subsection{My experience}
 % -------------------------------------------------------------
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\setframetitle{}}
+  
+  \begin{columns}[t]
+    \column{.5\textwidth}
+    
+    \begin{itemize}
+      \item PhD in computational physics 
+      \begin{itemize}
+        \item Plasmonic and optics
+      \end{itemize}
+      
+      \item Currently an RSE
+      \begin{itemize}
+        \item Meteorology and oceanography
+      \end{itemize}
+      
+    \end{itemize}
+    
+    \column{.5\textwidth}
+
+    \begin{figure}
+      \captionsetup[subfigure]{justification=centering}
+      \centering
+      \subcaptionbox{An RSE in academia}
+      {\myimageShift{width=0.8\linewidth}{illustrations/code_quality/git_evangelist}{Michele Rosenthal}}   
+    \end{figure}
+    
+  \end{columns}
+  
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\setframetitle{}}
+\begin{center}
+  \begin{figure}
+    \captionsetup[subfigure]{justification=centering}
+    \centering
+    \subcaptionbox{\centering Computational science}
+    {\myimage{width=0.5\linewidth}{illustrations/code_quality/computational_science}{https://computingstudy.wordpress.com/scientific-computing/}}
+  \end{figure}
+\end{center}
+
+\end{frame}
+
+
+
+\section{Good scientific software}
+\subsection{Question}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\setframetitle{}}
@@ -154,6 +182,7 @@ A lavterskel talk
   }
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 
@@ -188,313 +217,114 @@ Maintainable \footnote{Common estimate: spending 20\% of the developing time
     \end{columns}
 }
 
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-\section{Best practices for scientific computing}
-\subsection{My point of view}
+\subsection{Tools} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\setframetitle{}}
-  Learning from success stories  \footnote{\fullcite{wilson2014best}}, \footnote{\fullcite{bigTech}}:
-  
+  %General tools \footnote{\fullcite{wilson2014best}}, \footnote{\fullcite{bigTech}}:
+  \vspace{-0.5cm}
   \begin{columns}[t]
     \column{.5\textwidth}
-    
-    \begin{itemize}
-      \item Version control 
-      
-      \item Workflow optimization
-      
-      \item Documentation
+   \begin{figure}
+      \captionsetup[subfigure]{justification=centering}
+      \centering
+      \subcaptionbox{Version control }
+    {\includegraphics[width=0.6\linewidth]{illustrations/code_quality/git}}%
+    \hfill
+      \subcaptionbox{Documentation}
+      {\includegraphics[width=0.6\linewidth]{illustrations/code_quality/comment-your-code}}
+    \end{figure}
+      \\
+      \column{.5\textwidth}
+      \begin{figure}
+        \captionsetup[subfigure]{justification=centering}
+        \centering
+        \subcaptionbox{Containerization}
+        {\myimageShift{width=0.7\linewidth}{illustrations/code_quality/cloud_computing}{https://www.pinterest.co.uk/pin/536209899356890025/}}
+        \hfill
+        \subcaptionbox{(Modern) editor}
+        {\myimageShift{width=0.85\linewidth}{illustrations/code_quality/editor_fight}{https://i.redd.it/798myjzkwmjz.jpg}}
+      \end{figure}
+     %
+  \end{columns}
+  
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-      \item Containerization
-      
-      \item (Modern) editor
-    \end{itemize}
-    
+\section{'Good enough' scientific software}
+\subsection{Tools \footnote{\fullcite{wilson2017good}}} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{\setframetitle{}}
+  %General tools \footnote{\fullcite{wilson2014best}}, \footnote{\fullcite{bigTech}}:
+  \vspace{-0.5cm}
+  \begin{columns}[t]
     \column{.5\textwidth}
-    % \begin{figure}
-    %   \subcaptionbox{The fight of the editors}
-    %   {\myimageShift{width=\linewidth}{illustrations/code_quality/editor_fight}{https://i.redd.it/798myjzkwmjz.jpg}}
-    % \end{figure}
+   \begin{figure}
+      \captionsetup[subfigure]{justification=centering}
+      \centering
+      \subcaptionbox{Version control }
+      {\color{my_raspberry}\setlength{\fboxrule}{2pt}%
+\fbox{\includegraphics[width=0.6\linewidth]{illustrations/code_quality/git}}}%
+    \hfill 
+      \subcaptionbox{Documentation}
+      {\includegraphics[width=0.6\linewidth]{illustrations/code_quality/comment-your-code}}
+    \end{figure}
+      \\
+      \column{.5\textwidth}
+      \begin{figure}
+        \captionsetup[subfigure]{justification=centering}
+        \centering
+        \subcaptionbox{Containerization}
+        {\myimageShift{width=0.7\linewidth}{illustrations/code_quality/cloud_computing}{https://www.pinterest.co.uk/pin/536209899356890025/}}
+        \hfill
+        \subcaptionbox{(Modern) editor}
+        {\myimageShift{width=0.85\linewidth}{illustrations/code_quality/editor_fight}{https://i.redd.it/798myjzkwmjz.jpg}}
+      \end{figure}
+     %
   \end{columns}
   
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\section{Discussion}
+\subsection{How to be a 'good' git evangelist? }
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}{\setframetitle{}}
-  
-  \begin{columns}[t]
-    \column{.5\textwidth}
-    
+\begin{columns}%[t]
+  \column{.7\textwidth}
+ 
+  \begin{itemize}
+    \setlength\itemsep{1em}
+    \item Is version control the most important tool for a scientific developer?  
     \begin{itemize}
-      \item Version control 
-      \textcolor{bg!85!normal text.fg}
-      {\item Workflow optimization      
-      \item Documentation
-      \item Containerization 
-      \item (Modern) editor}
-      
+      \setlength\itemsep{0.5em}
+      \item Are there other tools that are more important? (i.e. debugger, containers )
     \end{itemize}
-    
+    \item How can we motivate scientists to learn to use version control? 
+    \item Do all code projects need version control? 
+    \item When should the scientific developer learn to use version control? 
+    \item How and who should teach version control's best practices?
+  \end{itemize}
+  
     \column{.5\textwidth}
     \begin{figure}
       \captionsetup[subfigure]{justification=centering}
       \centering
-      \subcaptionbox{}
-      {\includegraphics[width=\linewidth]{illustrations/code_quality/git}}
+      \subcaptionbox{Git usage in a nutshell}
+      {\myimageShift{width=0.8\linewidth}{illustrations/code_quality/git_xkcd}{https://xkcd.com/1597/}}   
     \end{figure}
-  \end{columns}
-  
+   %
+\end{columns}
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{\setframetitle{}}
-  
-  \begin{columns}[t]
-    \column{.5\textwidth}
-    
-    \begin{itemize}
-      \item \textcolor{bg!85!normal text.fg}{Version control}
-      \item Workflow optimization     
-      \textcolor{bg!85!normal text.fg}
-      {\item Documentation
-      \item Containerization  
-      \item (Modern) editor} 
-    \end{itemize}
-    
-    \column{.6\textwidth}
-    \begin{figure}
-      \centering
-      \subcaptionbox{What happens when using spaghetti code}
-      {\myimageShift{width=0.89\linewidth}{illustrations/code_quality/goto}{https://www.i-programmer.info/programming/theory/1332-goto-spaghetti-and-velociraptor.html}}
-    \end{figure}
-  \end{columns}
-  
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{\setframetitle{}}
-  
-  \begin{columns}[t]
-    \column{.5\textwidth}
-    
-    \begin{itemize}
-      \item \textcolor{bg!85!normal text.fg}{Version control
-      \item Workflow optimization  } 
-      \item Documentation
-      \textcolor{bg!85!normal text.fg}
-      {\item Containerization
-      \item (Modern) editor} 
-    \end{itemize}
-    
-    \column{.5\textwidth}
-    \begin{figure}
-      \captionsetup[subfigure]{justification=centering}
-      \centering
-      \subcaptionbox{}
-      {\includegraphics[width=\linewidth]{illustrations/code_quality/comment-your-code}}
-    \end{figure}
-  \end{columns}
-  
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{\setframetitle{}}
-  
-  \begin{columns}[t]
-    \column{.5\textwidth}
-    
-    \begin{itemize}
-      \item \textcolor{bg!85!normal text.fg}{Version control
-      \item Workflow optimization   
-      \item Documentation}
-      \item Containerization  
-      \textcolor{bg!85!normal text.fg}
-      {\item (Modern) editor} 
-    \end{itemize}
-    
-    \column{.5\textwidth}
-    \begin{figure}
-      {\myimageShift{width=0.8\linewidth}{illustrations/code_quality/cloud_computing}{https://www.pinterest.co.uk/pin/536209899356890025/}}
-    \end{figure}
-  \end{columns}
-  
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{\setframetitle{}}
-  
-  \begin{columns}[t]
-    \column{.5\textwidth}
-    
-    \begin{itemize}
-      \item \textcolor{bg!85!normal text.fg}{Version control
-      \item Workflow optimization    
-      \item Documentation
-      \item Containerization }
-      \item (Modern) editor
-    \end{itemize}
-    
-    \column{.5\textwidth}
-    \begin{figure}
-      \subcaptionbox{The fight of the editors}
-      {\myimageShift{width=\linewidth}{illustrations/code_quality/editor_fight}{https://i.redd.it/798myjzkwmjz.jpg}}
-    \end{figure}
-  \end{columns}
-  
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{A typical project}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
- \only<1>
-  {
- \begin{figure}
-         \subcaptionbox{Typical computational projects}
-         {\myimage{width=\linewidth}{illustrations/code_quality/project_definitions}{https://doi.org/10.1371/journal.pcbi.1008549.g001}}
- \end{figure}
- }
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% ---------------------------------------------------------------
-\section{How to get "good" scientific software?}
-% ---------------------------------------------------------------
-
-
-\subsection{Clarification of expectations}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
-  % \vspace{-0.2cm}
-  \only<1>
-  {
-\begin{figure}
-         %\subcaptionbox{Built on existing work}
-{\myimage{width=0.8\linewidth}{illustrations/code_quality/development_speed_quick_hacks}{Radovan
-          Bast, adapted from "Simple Made Easy" by Rich Hickey}}
- \end{figure}
- }
- \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Establish a common mindset}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
-  
-  \begin{figure}
-    \subcaptionbox{Extreams of community mindsets }
-    {\myimage{width=0.79\linewidth}{illustrations/code_quality/mindset2}{Ryan
-    Knox}}
-  \end{figure}
-  
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\subsection{Choose 'good enough' practices}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
-  % \vspace{-0.2cm}
- \only<1>
-  {
- \begin{figure}
-         \subcaptionbox{Unwanted stages of software development \footnote{\fullcite{wilson2017good}}}
-         {\myimage{width=\linewidth}{illustrations/code_quality/over_engineering}{https://www.action-engineering.com/blog/agile-acceptance-criteria/}}
- \end{figure}
- }
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Some practiacal tips to achive goals in a team}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
-  \begin{columns}[t]
-    \column{.99\textwidth}
-    
-    \begin{itemize}
-      \item Common onboarding of team in the beginning of the project 
-      
-      \item Identification of community goals and priorizations 
-      
-      
-      \item Decide on a platform for collaboration
-      
-      \item Pair programming and sprints 
-      
-      
-    \end{itemize}
-  
-  \end{columns}
-  
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-
-
-\section{Conclusion}
-\subsection{Question}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
-  \only<1>
-  {
- %\thispagestyle{empty}
-\centering
-
-
-\Large  Why should we care about 'good enough' software engineering practices?
-
-}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Answer}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{\setframetitle{}}
-  \only<1>
-  {
-\centering
-\Large  The quality of the software results will at best be as good as the software itself
-}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
